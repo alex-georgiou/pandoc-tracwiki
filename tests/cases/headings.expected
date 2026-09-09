@@ -1,13 +1,17 @@
-= Heading One #heading-one =
+= Heading One =
 
-== Heading Two #heading-two ==
+== Heading Two ==
 
-=== Heading Three #heading-three ===
+=== Heading Three ===
 
-==== Heading Four #heading-four ====
+==== Heading Four ====
 
-===== Heading Five #heading-five =====
+===== Heading Five =====
 
-====== Heading Six #heading-six ======
+====== Heading Six ======
 
 == Explicit ID #custom-id ==
+
+== Repeat ==
+
+== Repeat ==

@@ -205,12 +205,54 @@ local function renderPara(content)
   return table.concat(parts, '\n')
 end
 
+-- Approximate pandoc's default (non-GFM) auto_identifiers slug algorithm, so
+-- that implicit heading ids can be recognized and suppressed.
+local function implicitIdentifier(text)
+  text = text:lower()
+  text = text:gsub('[^%w%s%-%_%.]', '')
+  local words = {}
+  for w in text:gmatch('%S+') do
+    table.insert(words, w)
+  end
+  local ident = table.concat(words, '-')
+  ident = ident:gsub('^[^%a]*', '')
+  return (ident ~= '') and ident or 'section'
+end
+
+-- Build the set of ids pandoc would auto-generate for the document's headers,
+-- mirroring uniqueIdent's duplicate numbering (base, base-1, base-2, ...).
+local function implicitHeadingIds(blocks, used)
+  for _, block in ipairs(blocks) do
+    if block.t == 'Header' then
+      local base = implicitIdentifier(utils.stringify(block.content))
+      local ident = base
+      local n = 1
+      while used[ident] do
+        ident = base .. '-' .. n
+        n = n + 1
+      end
+      if block.identifier == ident then
+        used[block.identifier] = true
+      else
+        used[ident] = true
+      end
+    elseif block.t == 'Div' or block.t == 'Figure' then
+      implicitHeadingIds(block.content, used)
+    elseif block.t == 'BlockQuote' then
+      implicitHeadingIds(block.content, used)
+    end
+  end
+end
+
+local implicitIds = {}
+
 local function renderHeader(header)
   local eq = string.rep('=', header.level)
   local text = inlines(header.content)
   local id = header.identifier or ''
   local out = eq .. ' ' .. text
-  if id ~= '' then
+  -- Only emit explicit ids; suppress pandoc's auto-generated ones.
+  if id ~= '' and not implicitIds[id] then
     out = out .. ' #' .. id
   end
   return out .. ' ' .. eq
@@ -409,6 +451,8 @@ end
 Template = 'tracwiki'
 
 function Writer(doc, opts)
+  for k in pairs(implicitIds) do implicitIds[k] = nil end
+  implicitHeadingIds(doc.blocks, implicitIds)
   local body = renderBlocks(doc.blocks)
   if opts.template ~= nil and doc.meta ~= nil then
     local title = utils.stringify(doc.meta.title)

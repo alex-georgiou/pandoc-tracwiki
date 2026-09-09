@@ -2,7 +2,7 @@
 
 Intro paragraph with '''bold''', ''italic'', `inline` and a [https://example.org link].
 
-== Lists #lists ==
+== Lists ==
 
  * one
  * two
@@ -10,7 +10,7 @@ Intro paragraph with '''bold''', ''italic'', `inline` and a [https://example.org
 1. alpha
 2. beta
 
-== Code #code ==
+== Code ==
 
 {{{#!lua
 local x = 1
@@ -21,7 +21,7 @@ return x
 >
 > > Deeper.
 
-== Table #table ==
+== Table ==
 
 ||=Item =||=Count=||
 || a || 1 ||

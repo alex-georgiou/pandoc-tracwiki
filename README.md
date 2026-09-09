@@ -84,8 +84,9 @@ AST directly. Conversion summary:
 
 - Trac has no native footnotes; `Note` elements are rendered inline in
   parentheses.
-- Heading identifiers are always emitted (`#id`); set an explicit id in the
-  source (`## Section {#my-id}`) to control the anchor.
+- Only explicitly authored heading ids are emitted (`## Section {#my-id}` →
+  `== Section #my-id ==`). Pandoc's implicitly auto-generated ids are
+  suppressed; Trac derives its own readable anchors otherwise.
 - Table cells with multiple blocks are joined with `[[BR]]`; no colspan or
   rowspan handling.
 - Unsupported block/inline types (e.g. `Cite`, `SmallCaps`) degrade to their
