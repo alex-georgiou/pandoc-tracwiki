@@ -1,0 +1,7 @@
+[https://example.com example] and [https://example.com Example].
+
+[wiki:LocalPage local page] and [#section section].
+
+https://auto.example.org
+
+[[Image(image.png, alt=Alt text, title=The image)]]

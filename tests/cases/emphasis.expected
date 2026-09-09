@@ -1,0 +1,7 @@
+'''bold''' and ''italic'' and '''''bold italic'''''.
+
+underlined, ~~struck~~, ^sup^ and ,,sub,,.
+
+`inline code` and {{{code with ` backtick}}}.
+
+Literal {{braces}} stay as-is.

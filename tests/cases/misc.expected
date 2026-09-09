@@ -1,0 +1,11 @@
+above
+
+----
+
+below
+
+Inline math `e^{i\pi}+1=0` and display:
+
+{{{
+\int_0^\infty e^{-x}\,dx = 1
+}}}

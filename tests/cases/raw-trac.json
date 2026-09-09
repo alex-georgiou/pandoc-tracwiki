@@ -1,0 +1,32 @@
+{
+  "pandoc-api-version": [1, 23, 1],
+  "meta": {},
+  "blocks": [
+    {
+      "t": "Para",
+      "c": [
+        {
+          "t": "RawInline",
+          "c": ["trac", "`traced`"]
+        },
+        {
+          "t": "Str",
+          "c": " stays."
+        }
+      ]
+    },
+    {
+      "t": "RawBlock",
+      "c": ["trac", "{{{\n#!text\nraw block\n}}}"]
+    },
+    {
+      "t": "Para",
+      "c": [
+        {
+          "t": "Str",
+          "c": "after"
+        }
+      ]
+    }
+  ]
+}
