@@ -13,8 +13,8 @@ Requires pandoc >= 2.17 (new-style Lua writers) with Lua scripting support
 pandoc --from=markdown -t /path/to/tracwiki.lua input.md > output.txt
 ```
 
-The writer file can also live on the pandoc user data directory
-(`~/.local/share/pandoc`) so it can be referenced by name:
+Once installed (see below), the writer can be referenced by name from any
+directory:
 
 ```sh
 pandoc -t tracwiki.lua input.md
@@ -22,6 +22,38 @@ pandoc -t tracwiki.lua input.md
 
 For a self-contained page (writes the metadata `title` as a top-level
 heading), use `--standalone`.
+
+## Install
+
+Pandoc looks for custom writers in the `custom` subdirectory of its user data
+directory (default `~/.local/share/pandoc`). Install with:
+
+```sh
+make install
+```
+
+or manually:
+
+```sh
+mkdir -p ~/.local/share/pandoc/custom
+cp tracwiki.lua ~/.local/share/pandoc/custom/tracwiki.lua
+```
+
+Verify from any directory: `printf 'Hi\n' | pandoc -t tracwiki.lua`.
+
+To install system-wide (all users), point `PANDOC_DATA_DIR` at the system
+data directory (requires sudo):
+
+```sh
+sudo make install PANDOC_DATA_DIR=/usr/local/share/pandoc
+```
+
+Other targets:
+
+```sh
+make uninstall   # remove the installed writer
+make test        # run the golden-file test suite
+```
 
 ## Supported markup
 
