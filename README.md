@@ -1,4 +1,4 @@
-# md2tracwiki
+# pandoc-tracwiki
 
 A [pandoc](https://pandoc.org) custom writer **and reader** (both in one Lua
 script) that renders documents as
@@ -7,7 +7,7 @@ Trac wiki markup back into pandoc's AST.
 
 Requires pandoc >= 3.1 (single-script custom readers/writers) with Lua
 scripting support (`pandoc --version` should list `+lua`). Developed against
-pandoc 3.6.1.
+pandoc 3.6.1. See [LIMITATIONS.md](LIMITATIONS.md) for known gaps.
 
 ## Usage
 
