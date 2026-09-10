@@ -39,7 +39,7 @@ for case_file in "${cases[@]}"; do
   [ -f "$case_file" ] || continue
   case "$case_file" in
     *.json) from=json ;;
-    *.md)   from=markdown ;;
+    *.md)   from=markdown-tex_math_dollars ;;
     *)      continue ;;
   esac
 

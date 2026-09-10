@@ -1,7 +1,7 @@
 -- tracwiki.lua: pandoc custom writer that renders Trac wiki markup.
 --
--- Use:  pandoc --from=markdown -t /path/to/tracwiki.lua input.md
--- or:   pandoc --from=markdown -t tracwiki.lua input.md  (with this file on the
+-- Use:  pandoc --from=markdown-tex_math_dollars -t /path/to/tracwiki.lua input.md
+-- or:   pandoc --from=markdown-tex_math_dollars -t tracwiki.lua input.md  (with this file on the
 --       pandoc user data directory or given as a path)
 
 local utils = require 'pandoc.utils'

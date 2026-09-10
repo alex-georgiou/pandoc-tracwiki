@@ -13,7 +13,7 @@ pandoc 3.6.1. See [LIMITATIONS.md](LIMITATIONS.md) for known gaps.
 
 ```sh
 # Markdown / JSON -> Trac wiki
-pandoc --from=markdown -t /path/to/tracwiki.lua input.md > output.txt
+pandoc --from=markdown-tex_math_dollars -t /path/to/tracwiki.lua input.md > output.txt
 
 # Trac wiki -> pandoc (to Markdown here)
 pandoc -f /path/to/tracwiki.lua -t markdown page.txt
@@ -76,7 +76,7 @@ Conversion summary:
 | Strikeout / Underline         | `~~x~~` / `__x__`                                |
 | Superscript / Subscript       | `^x^` / `,,x,,`                                  |
 | Inline code                   | `` `x` `` (falls back to `{{{x}}}` with backticks in text) |
-| Math                          | `` `$…` `` inline, `{{{…}}}` display-block       |
+| Math                          | literal text (`$…$`, `$$…$$` not interpreted)     |
 | Code blocks                   | `{{{` … `}}}`, with `{{{#!lang` when a class is set |
 | Bullet / ordered lists        | ` * ` / ` 1. `, nested lists indented 3 spaces   |
 | Definition lists              | `term:: definition`                              |

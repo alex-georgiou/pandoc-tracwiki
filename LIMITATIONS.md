@@ -23,9 +23,8 @@ gaps are listed below, per direction.
   plain-text content. Raw `html` / `latex` blocks and inlines are dropped;
   only already-`trac`-formatted raw content is passed through verbatim.
 
-- **Math**: emitted as `` `$…$` `` inline or `{{{…}}}` display. Trac has no
-  native math, so this is presentation-only and comes back as code (not
-  math) when the page is read again.
+- **Math**: `$…$` and `$$…$$` are kept as literal text. Trac has no native
+  math support, so dollar signs are not interpreted as math delimiters.
 
 - **Definition lists** are written as `term:: definition`; a term with no
   definition line is written as a bare `term::`.

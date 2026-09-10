@@ -4,8 +4,6 @@ above
 
 below
 
-Inline math $e^{i\pi}+1=0$ and display:
+The price is $5.00 and the fee is $0.75.
 
-$$
-\int_0^\infty e^{-x}\,dx = 1
-$$
+$$warning$$
