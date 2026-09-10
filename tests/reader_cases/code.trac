@@ -1,0 +1,19 @@
+{{{
+no language
+}}}
+
+{{{#!python
+print("hi")
+}}}
+
+{{{
+#!text
+kept as a text processor
+}}}
+
+{{{
+#!comment
+this should vanish
+}}}
+
+after the comment

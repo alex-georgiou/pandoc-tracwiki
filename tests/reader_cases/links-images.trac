@@ -1,0 +1,12 @@
+An [https://example.org external] link and a
+[https://example.org/bare] bare link.
+
+A [wiki:WikiStart home] link and a [TracPage local] page.
+
+Travel to [#section nested] anchor and to [=#point2 point two].
+
+[[Image(logo.png, alt=Logo, title=The logo)]]
+
+[[MacroFoo(one, two, three)]]
+
+[[BR]] starts a line, and ends one [[BR]]

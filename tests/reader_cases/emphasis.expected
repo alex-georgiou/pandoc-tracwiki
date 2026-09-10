@@ -1,0 +1,7 @@
+This line has **bold**, *italic*, and **bold with *nested italic***.
+
+Also ~~struck~~, [underlined]{.underline}, ^sup^, ~sub~ and
+`inline code`.
+
+Wrapping another `code block` that may contain \` backticks. It
+continues past a line wrap.

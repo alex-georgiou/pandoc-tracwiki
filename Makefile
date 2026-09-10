@@ -2,7 +2,7 @@ PANDOC_DATA_DIR ?= $(HOME)/.local/share/pandoc
 PANDOC_CUSTOM_DIR = $(PANDOC_DATA_DIR)/custom
 PANDOC_FILE = $(PANDOC_CUSTOM_DIR)/tracwiki.lua
 
-.PHONY: install uninstall test
+.PHONY: install uninstall test test-reader
 
 install:
 	mkdir -p "$(PANDOC_CUSTOM_DIR)"
@@ -15,4 +15,8 @@ uninstall:
 	@echo "Removed $(PANDOC_FILE)"
 
 test:
-	tests/run_tests.sh
+	tests/run_writer_tests.sh
+	tests/run_reader_tests.sh
+
+test-reader:
+	tests/run_reader_tests.sh

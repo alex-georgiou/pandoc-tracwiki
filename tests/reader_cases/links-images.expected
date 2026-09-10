@@ -1,0 +1,14 @@
+An [external](https://example.org) link and a <https://example.org/bare>
+bare link.
+
+A [home](WikiStart) link and a \[TracPage local\] page.
+
+Travel to [nested](#section) anchor and to [point
+two]{identifier="point2"}.
+
+![Logo](logo.png "The logo")
+
+`[[MacroFoo(one, two, three)]]`{=trac}
+
+\
+starts a line, and ends one\

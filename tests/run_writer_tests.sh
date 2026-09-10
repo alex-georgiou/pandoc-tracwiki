@@ -7,8 +7,8 @@
 # output against the committed <name>.expected golden file.
 #
 # Usage:
-#   tests/run_tests.sh          run all tests
-#   tests/run_tests.sh -u       regenerate golden files from current output
+#   tests/run_writer_tests.sh     run all tests
+#   tests/run_writer_tests.sh -u  regenerate golden files from current output
 #
 set -euo pipefail
 
