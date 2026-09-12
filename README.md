@@ -177,3 +177,7 @@ Reader cases:
    `tests/reader_cases/<name>.expected`.
 3. Review the generated file against the pandoc Markdown you expect.
 4. Run `tests/run_reader_tests.sh` to confirm it passes.
+
+## License
+
+MIT, see [LICENSE](LICENSE).

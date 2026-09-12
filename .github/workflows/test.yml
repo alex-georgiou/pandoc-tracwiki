@@ -1,0 +1,23 @@
+name: test
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        pandoc-version: [3.6.1]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install pandoc ${{ matrix.pandoc-version }}
+        run: |
+          curl -fL -o /tmp/pandoc.tar.gz \
+            "https://github.com/jgm/pandoc/releases/download/${{ matrix.pandoc-version }}/pandoc-${{ matrix.pandoc-version }}-linux-amd64.tar.gz"
+          tar -xzf /tmp/pandoc.tar.gz -C /tmp
+          sudo cp "/tmp/pandoc-${{ matrix.pandoc-version }}/bin/pandoc" /usr/local/bin/
+          pandoc --version
+      - name: Run tests
+        run: make test
