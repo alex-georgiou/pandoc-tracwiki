@@ -1,5 +1,7 @@
 # pandoc-tracwiki
 
+![CI](https://github.com/alex-georgiou/pandoc-tracwiki/actions/workflows/test.yml/badge.svg)
+
 A [pandoc](https://pandoc.org) custom writer **and reader** (both in one Lua
 script) that renders documents as
 [Trac wiki](https://trac.edgewall.org/wiki/WikiFormatting) markup and parses
