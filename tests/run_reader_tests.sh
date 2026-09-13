@@ -45,7 +45,11 @@ for case_file in "${trac_cases[@]}"; do
   [ -f "$case_file" ] || continue
   base="${case_file%.trac}"
   expected="$base.expected"
-  pandoc --from="$reader" --to=markdown "$case_file" > "$tmpdir/out.txt"
+  reader_flavor="$reader"
+  if [[ "$base" == *camelcase* ]]; then
+    reader_flavor="$reader+camelcase"
+  fi
+  pandoc --from="$reader_flavor" --to=markdown "$case_file" > "$tmpdir/out.txt"
 
   if [ "$update" = "1" ]; then
     cp "$tmpdir/out.txt" "$expected"

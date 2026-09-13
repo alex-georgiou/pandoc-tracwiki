@@ -1,0 +1,5 @@
+[CamelCase](CamelCase) auto-linking is off by default, so
+[WikiWord](WikiWord) stays literal here.
+
+With the +camelcase extension, [WikiWord](WikiWord) and
+[HereAreTwo](HereAreTwo) words link to pages.

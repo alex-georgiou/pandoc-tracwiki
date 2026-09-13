@@ -1,0 +1,3 @@
+CamelCase auto-linking is off by default, so WikiWord stays literal here.
+
+With the +camelcase extension, WikiWord and HereAreTwo words link to pages.

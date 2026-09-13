@@ -196,10 +196,8 @@ local function parseInlines(s)
     if pB and pB < best then best, kind = pB, '^' end
     local us, ue = matchAutolink(s, i)
     if us and us < best then best, kind = us, 'url' end
-    if CAMELCASE then
-      local cs, ce = matchCamel(s, i)
-      if cs and cs < best then best, kind = cs, 'camel' end
-    end
+    local cs, ce = matchCamel(s, i)
+    if CAMELCASE and cs and cs < best then best, kind = cs, 'camel' end
 
     if best > i then
       emitWords(out, s:sub(i, best - 1))
