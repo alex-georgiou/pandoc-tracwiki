@@ -170,16 +170,12 @@ running it twice yields identical output.
 Install and smoke-test:
 
 ```sh
-cd mcp && npm install && npm test        # or: make test-mcp
+cd mcp && npm install && npm test        # or: make test-mcp (from the repo root)
 ```
 
-Run it as a local stdio server:
-
-```sh
-node mcp/index.js
-```
-
-Register it with an MCP client, e.g. in `~/.config/opencode/opencode.json`:
+Register it with an MCP client by pointing a stdio server at
+`node <path-to-repo>/mcp/index.js`. Example for opencode
+(`~/.config/opencode/opencode.json`):
 
 ```json
 {
@@ -192,6 +188,10 @@ Register it with an MCP client, e.g. in `~/.config/opencode/opencode.json`:
   }
 }
 ```
+
+See [mcp/README.md](mcp/README.md) for full install instructions, env-var
+overrides, and client-specific examples for opencode, Claude Desktop and
+Visual Studio Code.
 
 ## Tests
 
