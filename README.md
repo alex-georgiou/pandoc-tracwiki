@@ -145,6 +145,54 @@ Enable Trac-style CamelCase auto-linking with `pandoc -f tracwiki.lua+camelcase`
 - Paragraph line-wrapping newlines become `SoftBreak`; a `SoftBreak` directly
   after a `[[BR]]`/`\\` reads back as a space (writer cosmetics only).
 
+## MCP server
+
+`mcp/` contains an [MCP](https://modelcontextprotocol.io) server (Node.js) that
+exposes the same conversions as tools, so an MCP client (IDE, agent, chat app)
+can convert Markdown and Trac wiki markup in either direction.
+
+Prereqs: `node`, the `pandoc` binary on PATH, and your regular
+pandoc-tracwiki install (the server shells out to pandoc with `tracwiki.lua`
+from this repo; override the binary or script via the `PANDOC_TRACWIKI_PANDOC`
+/ `PANDOC_TRACWIKI_LUA` env vars).
+
+Tools:
+
+| Tool                    | Inputs                                            | Output            |
+| ----------------------- | ------------------------------------------------- | ----------------- |
+| `tracwiki_to_markdown`  | `tracwiki` string, optional `camelcase`           | Markdown          |
+| `markdown_to_tracwiki`  | `markdown` string, optional `format`, `standalone`| Trac wiki markup  |
+| `normalize_tracwiki`    | `tracwiki` string                                 | Trac wiki markup  |
+
+`normalize_tracwiki` is the read-then-write fixed point (`trac -> trac`):
+running it twice yields identical output.
+
+Install and smoke-test:
+
+```sh
+cd mcp && npm install && npm test        # or: make test-mcp
+```
+
+Run it as a local stdio server:
+
+```sh
+node mcp/index.js
+```
+
+Register it with an MCP client, e.g. in `~/.config/opencode/opencode.json`:
+
+```json
+{
+  "mcp": {
+    "pandoc-tracwiki": {
+      "type": "local",
+      "command": ["node", "/path/to/pandoc-tracwiki/mcp/index.js"],
+      "enabled": false
+    }
+  }
+}
+```
+
 ## Tests
 
 Tests run against the locally installed `pandoc` binary (no `lua` or `busted`

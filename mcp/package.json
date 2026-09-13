@@ -1,0 +1,16 @@
+{
+  "name": "pandoc-tracwiki-mcp",
+  "version": "0.1.0",
+  "description": "MCP server exposing pandoc-tracwiki: convert between Markdown and Trac wiki markup",
+  "license": "MIT",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "bash test/run_tests.sh"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.30.0",
+    "zod": "^4.6.4"
+  }
+}

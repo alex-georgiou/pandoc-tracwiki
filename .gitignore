@@ -2,3 +2,4 @@
 *~
 *.swp
 *.komodoproject
+node_modules/
